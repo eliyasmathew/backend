@@ -5,7 +5,7 @@ export default function App() {
   const [post, setPost] = React.useState(null);
 
   React.useEffect(() => {
-    fetch('/fetchUser?id=1')
+    fetch('/fetchUser?id=2')
     .then(response => response.json())
     .then(post => {
       setPost(post)
