@@ -2,6 +2,7 @@ package com.coke.masterdata.controller;
 
 import com.coke.masterdata.model.User;
 import com.coke.masterdata.repository.UserRespository;
+import com.coke.masterdata.service.MasterdataService;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class MasterDataController {
 
     UserRespository userRespository;
+    MasterdataService masterdataService;
 
     @PostMapping(path = "/setUser")
     public User newUser(@RequestBody User user){
@@ -23,7 +25,8 @@ public class MasterDataController {
 
     @GetMapping(path = "/fetchUser")
     public User getUser(@RequestParam long id){
-        return userRespository.findById(id).get();
+        User user1 = masterdataService.getData();
+        return user1;
     }
 
 }
